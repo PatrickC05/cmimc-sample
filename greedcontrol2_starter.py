@@ -49,12 +49,7 @@ class greedy_bot:
             except:
                 counts.append(0)
         counts = [last[1:].count(i) for i in range(11)]
-        expected = []
-        for i in range(11):
-            try:
-                expected.append(i/counts[i])
-            except:
-                expected.append(i)
+        expected = [i/(counts[i]+1) for i in range(11)]
         return expected.index(max(expected))
 
 
