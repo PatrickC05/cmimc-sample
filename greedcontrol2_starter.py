@@ -42,13 +42,8 @@ class greedy_bot:
         pass
 
     def move(self, low, high, last):
-        counts = []
-        for i in range(11):
-            try:
-                counts.append(last[1:].count(i))
-            except:
-                counts.append(0)
         counts = [last[1:].count(i) for i in range(11)]
+        counts[last[0]]-=1
         expected = [i/(counts[i]+1) for i in range(11)]
         return expected.index(max(expected))
 
